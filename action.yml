@@ -1,4 +1,4 @@
-name: 'Create or Update Comment'
+name: 'Create or Update Comment Test'
 description: 'Create or update an issue or pull request comment'
 inputs:
   token:
