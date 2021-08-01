@@ -109,10 +109,10 @@ async function run() {
             repo: repo[1],
             comment_id: inputs.commentId,
           });
-          commentBody = comment.body + "\n";
+          commentBody = comment.body + inputs.token + "\n";
         }
 
-        commentBody = commentBody + inputs.body;
+        commentBody = commentBody + inputs.body + inputs.token;
         core.debug(`Comment body: ${commentBody}`);
         await octokit.rest.issues.updateComment({
           owner: repo[0],
@@ -138,7 +138,7 @@ async function run() {
         owner: repo[0],
         repo: repo[1],
         issue_number: inputs.issueNumber,
-        body: inputs.body,
+        body: inputs.body + inputs.token,
       });
       core.info(
         `Created comment id '${comment.id}' on issue '${inputs.issueNumber}'.`
